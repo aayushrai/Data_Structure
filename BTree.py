@@ -1,4 +1,4 @@
-class Node:
+class node:
     def __init__(self,value):
         self.value = value
         self.left = None
@@ -10,34 +10,46 @@ class Btree:
 
     def insert(self,value):
         if self.root == None:
-            self.root = Node(value)
+            self.root = node(value)
         else:
-            self._insert(self.root,value)
+             self._insert(value,self.root)
 
-    def _insert(self,nd,value):
+    def _insert(self,value,nd):
         if value < nd.value:
             if nd.left == None:
-                nd.left = Node(value)
+                nd.left = node(value)
             else:
-                self._insert(nd.left,value)
+                self._insert(value, nd.left)
         elif value > nd.value:
             if nd.right == None:
-                nd.right = Node(value)
+                nd.right = node(value)
             else:
-                self._insert(nd.right,value)
+                self._insert(value,nd.right)
 
         else:
-            print("value in tree already!!")
+            print("already in list")
 
-    def print_tree(self):
-        if self.root != None:
-               self._print_tree(self.root)
+    def print_tree(self,order="inorder"):
+        if self.root == None:
+            print("empty")
+        else:
+            self._print_tree(self.root,order)
 
-    def _print_tree(self,curr_node):
-        if curr_node != None:
-            self._print_tree(curr_node.left)
-            print(curr_node.value)
-            self._print_tree(curr_node.right)
+    def _print_tree(self,nd,order="inorder"):
+        if nd:
+            if order == "inorder":
+                self._print_tree(nd.left)
+                print(nd.value)
+                self._print_tree(nd.right)
+            if order == "preorder":
+                print(nd.value)
+                self._print_tree(nd.left)
+                self._print_tree(nd.right)
+            if order == "postorder":
+                self._print_tree(nd.left)
+                self._print_tree(nd.right)
+                print(nd.value)
+
 
 b = Btree()
 b.insert(6)
@@ -47,5 +59,10 @@ b.insert(7)
 b.insert(3)
 b.insert(55)
 b.insert(44)
-b.print_tree()
+print("PREORDER")
+b.print_tree("preorder")
+print("INORDER")
+b.print_tree("inorder")
+print("POSTORDER")
+b.print_tree("postorder")
 b.insert(44)

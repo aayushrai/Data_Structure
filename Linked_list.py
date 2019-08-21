@@ -3,7 +3,6 @@ class node:
         self.value = value
         self.next = None
 
-
 class linked:
     def __init__(self):
         self.head = None
