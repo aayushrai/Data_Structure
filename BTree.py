@@ -49,6 +49,33 @@ class Btree:
                 self._print_tree(nd.left)
                 self._print_tree(nd.right)
                 print(nd.value)
+            if order == "levelorder":
+                h = self.height()
+                for i in range(h+1):
+                     self.print_levelorder(nd,i+1)
+
+    def print_levelorder(self,nd,level):
+        if nd is None: return
+        if level == 1:
+            print(nd.value)
+        elif level > 1:
+            self.print_levelorder(nd.left,level-1)
+            self.print_levelorder(nd.right,level-1)
+
+    def height(self):
+        return self.maxdepth(self.root)
+
+    def maxdepth(self,nd):
+        if not nd:
+            return 0
+        else:
+            maxleft = self.maxdepth(nd.left)
+            maxright = self.maxdepth(nd.right)
+
+            if maxleft > maxright:
+                return maxleft+1
+            else:
+                return maxright+1
 
 
 b = Btree()
@@ -59,10 +86,12 @@ b.insert(7)
 b.insert(3)
 b.insert(55)
 b.insert(44)
+print("height of tree is "+ str(b.height()))
 print("PREORDER")
 b.print_tree("preorder")
 print("INORDER")
 b.print_tree("inorder")
 print("POSTORDER")
 b.print_tree("postorder")
-b.insert(44)
+print("LEVELORDER")
+b.print_tree("levelorder")
