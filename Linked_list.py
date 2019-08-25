@@ -39,16 +39,23 @@ class linked:
         self.head = old
 
     def reverse(self):
+        prev = None
         curr = self.head
-        while curr.next != None:
-            curr = curr.next
-        self.head = curr
+        while curr:
+            next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        self.head = prev
 
 
 l = linked()
 l.insert(5)
 l.insert(6)
 l.insert(7)
+l.display()
+print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+l.reverse()
 l.display()
 print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 l.delete()

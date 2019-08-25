@@ -58,7 +58,7 @@ class Btree:
         if nd is None: return
         if level == 1:
             print(nd.value)
-        elif level > 1:
+        if level > 1:
             self.print_levelorder(nd.left,level-1)
             self.print_levelorder(nd.right,level-1)
 
