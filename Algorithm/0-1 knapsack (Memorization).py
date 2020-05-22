@@ -14,7 +14,7 @@ def knapsack(cap,n):
 if __name__ == "__main__":
     price = [2,4,5,6,1,5,2,2,23,51,3,5,1,45,6,14,2,2,41,44]
     weight = [2,4,3,2,4,3,3,4,5,3,23,43,3,3,33,41,34,3,4,5]
-    capacity =  100
+    capacity  = 15
     n = len(price)
     dis = {}
     print(knapsack(capacity,n))
