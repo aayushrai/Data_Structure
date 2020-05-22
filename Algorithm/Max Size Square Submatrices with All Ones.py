@@ -12,4 +12,5 @@ if __name__ == "__main__":
                 dp[i][j] =  (1 + min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]))
             if larg < dp[i][j]:
                 larg = dp[i][j]
+
     print(larg*larg)
