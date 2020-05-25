@@ -11,7 +11,7 @@ int main(){
     return 0;
 }
 
-int SOS(int temp,int n){
-   if( temp )
-   return SOS(int )
-}
+// int SOS(int temp,int n){
+//    if( temp )
+//    return SOS(int )
+// }
