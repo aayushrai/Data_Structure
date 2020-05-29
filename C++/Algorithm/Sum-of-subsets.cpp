@@ -3,7 +3,7 @@
 using namespace std;
 int SOS(int,int);
 int arr[200],n,k;
-
+int counter =0;
 int main(){
     cout << "Enter number of item: ";
     cin >> n;
@@ -21,9 +21,12 @@ int main(){
 }
 
 int SOS(int temp,int n){
-   if((temp+arr[n])>k or n<0)
+   if((temp+arr[n])>k or n<0){
        return false;
-   if((temp+arr[n])== k)
+   }
+   if((temp+arr[n])== k){
+
        return true;
+   }
     return SOS(temp,n-1) or SOS(temp+arr[n],n-1);
 }
