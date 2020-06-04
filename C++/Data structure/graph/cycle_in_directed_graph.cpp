@@ -2,6 +2,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//Time complexity O(V+E)
+//Space complexity O(V)
+
 int isCycleUtil(vector<int> adjList[],vector<bool> visited,int curr){
     if(visited[curr]==true)
        return true;
