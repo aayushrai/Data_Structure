@@ -26,7 +26,7 @@ class Graph:
             return True
         visited[curr] = True
         for i in range(len(self.node[curr])):
-            if(self.isCycleUtil(self.node[curr][i],visited)):
+            if(self.isCycleUtil(self.node[curr][i],visited.copy())):
                 return True
         return False
 
