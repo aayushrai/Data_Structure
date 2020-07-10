@@ -32,6 +32,3 @@ if __name__ == "__main__":
 		graph.addEdgeDirectedGragh(src-1,dst-1) if typ == 1 else graph.addEdgeUndirectedGraph(src-1,dst-1)
 
 	print(graph.adjMat)
-
-  
-
