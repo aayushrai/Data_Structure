@@ -20,21 +20,22 @@ class Graph:
 		if src in self.adjList[dst]:
 			self.adjList[dst].remove[src]
 
-	def BFS(self,starting):
+	def DFS(self,starting):
 
 		visited = [False for i in range(self.vertex)]
 
-		Q = []
-		Q.append(starting)
+		S = []
+		S.append(starting)
 		visited[starting] = True
 
-		while Q:
-			node = Q.pop(0)
+		while S:
+			node = S.pop(-1)
 			print(node,end=" ")
 			for i in self.adjList[node]:
 				if not visited[i]:
-					Q.append(i)
+					S.append(i)
 					visited[i] = True
+			
 
 
 if __name__ == "__main__":
@@ -46,7 +47,7 @@ if __name__ == "__main__":
 		src,dst = map(int,input("Enter source and destination:").split())
 		graph.addEdgeDirectedGraph(src,dst) if typ == 1 else graph.addEdgeUndirectedGraph(src,dst)
 	print(graph.adjList)
-	graph.BFS(2)
+	graph.DFS(0)
 
 	
 
