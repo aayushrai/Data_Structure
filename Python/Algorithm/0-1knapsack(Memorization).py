@@ -2,6 +2,7 @@
 def knapsack(cap,n):
     if n == 0 or cap == 0:
         return 0
+    print(cap,n)
     if (cap,n) in dis.keys():
         return dis[(cap,n)]
     if weight[n-1] > cap:
