@@ -2,59 +2,6 @@
 import math
 
 
-def dfs(i,j,m,n):
-	if i >= m or j >= n or i <0 or j<0:
-		return False
-
-	if i == m-1 and j == n-1:
-		return True
-
-	if grid[i][j] == 1:
-		return False
-	grid[i][j] = 1
-
-	if grid[i+1][j]==0 and dfs(i+1,j,m,n):
-		print(i,j)
-		grid[i][j+1]=1 
-		return True
-
-	if grid[i][j+1]==0 and dfs(i,j+1,m,n):
-		print(i,j)
-		grid[i][j]=1 
-		return True
-
-	if grid[i][j-1]==0 and dfs(i,j-1,m,n):
-		print(i,j)
-		grid[i][j-1]=1 
-		return True
-
-	if grid[i-1][j]==0 and dfs(i-1,j,m,n):
-		print(i,j)
-		grid[i-1][j]=1 
-		return True
-
-	if grid[i+1][j+1]==0 and dfs(i+1,j+1,m,n):
-		print(i,j)
-		grid[i+1][j+1]=1 
-		return True
-
-	if grid[i+1][j-1]==0 and dfs(i+1,j-1,m,n):
-		print(i,j)
-		grid[i+1][j-1]=1 
-		return True
-
-	if grid[i-1][j+1]==0 and dfs(i-1,j+1,m,n):
-		print(i,j)
-		grid[i-1][j+1]=1 
-		return True
-
-	if grid[i-1][j-1]==0 and dfs(i-1,j-1,m,n):
-		print(i,j)
-		grid[i-1][j-1]=1 
-		return True
-	return False
-
-
 
 
 if __name__ == "__main__":
@@ -62,7 +9,7 @@ if __name__ == "__main__":
 	number_of_col = 5
 	number_of_circles= 1
 	radius = 1
-	coordinates_of_circles = [(1,1)]
+	coordinates_of_circles = [(2,1),(2,2)]
 
 	grid = [[0 for i in range(number_of_col)]for j in range(number_of_row)]
 
@@ -74,6 +21,54 @@ if __name__ == "__main__":
 					grid[x][y] = 1
 	print(grid)
 	
+	Q = [(0,0)]
+	grid[0][0] = 1
+
+	while Q:
+		coor = Q.pop(0)
+		ele1,ele2 = coor
+
+		#top left
+		if (ele1-1 >=0 and ele2-1>=0) and grid[ele1-1][ele2-1] == 0:
+			Q.append((ele1-1,ele2-1))
+			grid[ele1-1][ele2-1] = 1
+		#top right
+		if (ele1+1<number_of_col  and ele2-1>=0) and grid[ele1+1][ele2-1] == 0:
+			Q.append((ele1+1,ele2-1))
+			grid[ele1+1][ele1-1] = 1
+
+		if (ele1+1 <number_of_col and ele2+1<number_of_row) and grid[ele1+1][ele2+1] == 0:
+			Q.append((ele1+1,ele2+1))
+			grid[ele1+1][ele2+1] = 1
+
+		if (ele1+1 <number_of_col) and grid[ele1+1][ele2] == 0:
+			Q.append((ele1+1,ele2))
+			grid[ele1+1][ele2] = 1
+
+		if (ele2+1<number_of_row) and grid[ele1][ele2+1] == 0:
+			Q.append((ele1,ele2+1))
+			grid[ele1][ele2+1] = 1
+
+		if (ele1-1 >=0) and grid[ele1-1][ele2] == 0:
+			Q.append((ele1-1,ele2))
+			grid[ele1-1][ele2] = 1
+
+		if (ele2-1>=0) and grid[ele1][ele2-1] == 0:
+			Q.append((ele1,ele2-1))
+			grid[ele1][ele2-1] = 1
+
+		if (ele1-1 >=0 and ele2+1<number_of_row) and grid[ele1-1][ele2+1] == 0:
+			Q.append((ele1-1,ele2+1))
+			grid[ele1-1][ele1+1] = 1
+
+
+	print(grid[number_of_col-1][number_of_row-1]==1)
+
+
+
+
+
+
 
 
 
