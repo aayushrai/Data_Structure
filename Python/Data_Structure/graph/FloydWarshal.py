@@ -2,10 +2,10 @@
 
 
 def FloydWarshal(adjMat,vertex):
-	for inter in range(vertex):
+	for intermediate in range(vertex):
 		for src in range(vertex):
 			for dst in range(vertex):
-				adjMat[src][dst] = min(adjMat[src][dst],adjMat[src][inter]+adjMat[inter][dst])
+				adjMat[src][dst] = min(adjMat[src][dst],adjMat[src][intermediate]+adjMat[intermediate][dst])
 	return adjMat
 
 
