@@ -16,7 +16,7 @@ struct TreeNode{
 };
 
 
-struct TreeNode* insertNode(struct TreeNode* root,int key){
+struct TreeNode* insertLevelOrder(struct TreeNode* root,int key){
     struct TreeNode* nw = new TreeNode(key);
     if(not root)
         return nw;
@@ -54,9 +54,9 @@ int main(){
     struct TreeNode* root = new TreeNode(4);
     root->left = new TreeNode(5);
     root->right = new TreeNode(6);
-    root = insertNode(root,88);
-     root = insertNode(root,77);
-          root = insertNode(root,7);
+    root = insertLevelOrder(root,88);
+     root = insertLevelOrder(root,77);
+          root = insertLevelOrder(root,7);
     preoder(root);
     return 0;
 }

@@ -19,8 +19,8 @@ void preoder(struct TreeNode* node){
     if(not node)
         return;
     cout << node->val << " ";
-    display(node->left);
-    display(node->right);
+    preoder(node->left);
+    preoder(node->right);
 }
 
 
