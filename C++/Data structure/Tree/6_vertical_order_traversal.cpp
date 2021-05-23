@@ -57,9 +57,12 @@ int main(){
 }
 
 
-// Vertical traversal
+    // Vertical traversal
     //   |   |  5  |
     //   | 4 |     | 6
     // 8 |   | 9 10|
+    //          ^
+    //        inorder(given)
 
+    //  https://youtu.be/8ND-GB8hpJI
       
