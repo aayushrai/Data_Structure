@@ -28,26 +28,54 @@
 
 using namespace std;
 string s;
-void Printabbrevations(int i,string output,int prev){
+
+//aproach 1
+void Printabbrevations2(int i,string output,int prev){
     if(i>=s.length()){
         cout << output << endl;
         return;
     }
 
-    Printabbrevations(i+1,output+s[i],0);
+    Printabbrevations2(i+1,output+s[i],0);
     if(prev == 0){
         output += to_string(1);
     }
     else{
         output = output.substr(0,output.length()-1) + to_string(prev+1);
     }
-    Printabbrevations(i+1,output,prev+1); 
+    Printabbrevations2(i+1,output,prev+1); 
+    
+
+}
+
+// aproach 2
+void Printabbrevations1(int i,string output,int prev){
+    if(i>=s.length()){
+        if(prev!=0){
+        cout << output+to_string(prev) << endl;
+        }
+        else{
+        cout << output << endl;
+        }
+        return;
+    }
+     if(prev != 0){
+    Printabbrevations1(i+1,output+to_string(prev)+s[i],0);
+    }
+    else{
+        Printabbrevations1(i+1,output+s[i],0);
+    }
+    Printabbrevations1(i+1,output,prev+1); 
     
 
 }
 
 int main(){
     s = "pep";
-    Printabbrevations(0,"",0);
+    cout << "Aproach 1" << endl;
+    Printabbrevations1(0,"",0);
+    cout << "Aproach 2 " ;
+    cout << "---------------------------------------------------"<< endl;
+    Printabbrevations2(0,"",0);
     return 0;
 }
