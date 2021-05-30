@@ -58,9 +58,30 @@ void boundaryTraversal(node* root){
     leftBoundary(root->left);
     leafNodes(root);
     rightBoundary(root->right);
-
-    
 }
+
+//     1
+//   /   \
+//  2     5
+//   \   / \
+//    3 8   6
+//   /     /
+//  4     7
+//       /
+//      9
+
+// boundary traversal  1 2 3 4 8 9 7 6 5
+// root -> 1
+// left boundary(without leaf node 4 )(top down) -> 2 3 
+// leaf nodes(left to right) -> 4 8 9
+// right boundary(without leaf node 9 )(bottom up) -> 7 6 5
+
+// for boundary traversal 
+// first step, in first step we check root exist or not, if root exist then print it;
+// second step, in second step we are printing left boundary without leaf node top to down(level order)
+// third step, in third step we are printing leaf nodes left to right
+// fourth step, in fourth step we are printing right boundary without leaf node bottom up(level order)
+// note left and right boundary without leaf node because if we include leaf node it going to print twise because they are also going to add in leaf node third step.
 
 int main(){
     node* root = new node(1);
