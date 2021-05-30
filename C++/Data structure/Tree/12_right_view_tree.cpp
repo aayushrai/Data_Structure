@@ -30,7 +30,7 @@ typedef struct node{
 // 7       3
 
 // level order
-void leftView(node* root){
+void rightView(node* root){
      if(not root)
         return;
     queue<pair<node *,int>> q;
@@ -52,15 +52,15 @@ void leftView(node* root){
 }
 
 // preoder
-void leftView2(node* root,int &visitedLevel,int currLevel){
+void rightView2(node* root,int &visitedLevel,int currLevel){
     if(not root)
         return;
     if(visitedLevel == currLevel){
         cout << root->val << " ";
         visitedLevel += 1;
     }
-     leftView2(root->right,visitedLevel,currLevel+1);  
-    leftView2(root->left,visitedLevel,currLevel+1);
+     rightView2(root->right,visitedLevel,currLevel+1);  
+    rightView2(root->left,visitedLevel,currLevel+1);
    
 }
 
@@ -76,11 +76,11 @@ int main(){
     root->right->right->right->left = new node(9);
     // first approach by level order traversal
     // traverse tree with level order in each level print the element which comes first and skip print the other element of same level
-    leftView(root);
+    rightView(root);
     cout << endl;
     // second approach preorder traversal 
     // traverse tree with preorder 
     int c = 0;
-    leftView2(root,c,0);
+    rightView2(root,c,0);
     return 0;
 }
