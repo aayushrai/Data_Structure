@@ -49,4 +49,4 @@ int main(){
 // (10)  /
 //      9
 //     (28)
-// is any root to leaf sum is equal to given sum
+// maximum sum from root to leaf
