@@ -4,7 +4,6 @@
 using namespace std;
 int n;
 vector<vector<int>>board;
-vector<vector<int>>ans;
 bool check(int i,int j){
     for(int k=j-1;k>=0;k--){
         if(board[i][k]==1)
@@ -20,19 +19,19 @@ bool check(int i,int j){
     }
     return true;
 }
-void NQ(int j){
+bool NQ(int j){
     if(j>=n){
-        ans = board;
-        return;
+        return true;
     }
     for(int l=0;l<n;l++){
         if(check(l,j)){
             board[l][j] = 1;
-            NQ(j+1);
+            if(NQ(j+1))
+                return true;
             board[l][j] = 0;
         }
     }
-  return;
+  return false;
 
 }
 
@@ -41,9 +40,9 @@ int main(){
     vector<vector<int>> arr(n,vector<int>(n,0));
     board = arr;
     NQ(0);
-    for(int i =0;i<ans.size();i++){
-        for(int j=0;j<ans[0].size();j++){
-            cout << ans[i][j] << " ";
+    for(int i =0;i<board.size();i++){
+        for(int j=0;j<board[0].size();j++){
+            cout << board[i][j] << " ";
         }
         cout << endl;
     }
