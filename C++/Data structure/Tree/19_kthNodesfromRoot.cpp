@@ -48,5 +48,3 @@ int main(){
 //  4     7
 //       /
 //      9
-//    
-// is any root to leaf sum is equal to given sum
