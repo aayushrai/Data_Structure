@@ -75,10 +75,24 @@ int main(){
 
 //     1
 //   /   \
-//  2     5
+//  2     5 <- target node , from target node find all the kth node
 //   \   / \
-//    3 8   6   k == 2(root to node distance is k)
+//    3 8   6   
 //   / /   /
 //  4 10  7
 //       /
 //      9
+
+
+// Aproach
+
+// # simple words
+//first we find target node
+// then we apply bfs from target node (left,right and parent)
+
+// # coding words
+
+//first we find parent of all the node and store it into map (because we need parent node in order to find kth node)
+//Then we going to find target node using any approach bfs(level order),dfs(preorder,inorder,postorder)
+//After this we apply bfs for find kth node ,this is not simple bfs because we also need to apply bfs child to parent direction in this we use 
+//our map that we created in first step and we also track visited node because when we apply bfs on parent its going to again visite the child node that already visited
