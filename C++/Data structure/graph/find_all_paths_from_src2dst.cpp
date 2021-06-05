@@ -25,13 +25,13 @@ class graph{
                 cout << endl;
             }
             path.push_back(src);
+            visited[src] = true;
             for(int j:adjMatrix[src]){
                 if(!visited[j]){
-                    visited[j] = true;
                     printAllPathsFromSrc2dst(j,dst,visited,path);
-                    visited[j] = false;
                 }
             }
+            visited[src] = false;
 
         }
 
@@ -49,8 +49,6 @@ int main(){
     G.addEdge(4,6);
     G.addEdge(5,6);
     vector<bool>visited(vertex,false);
-     G.printAllPathsFromSrc2dst(0,0,visited,{});
-
-
+     G.printAllPathsFromSrc2dst(0,6,visited,{});
     return 0;
 }

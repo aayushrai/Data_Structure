@@ -35,6 +35,7 @@ int main()
 // _____________________________________________________________________________________________________________________________________________________
 // second approach with classes and also with weighted graph
 //  we can also use pair<int,int> int place struct  vw i just experimenting
+
 #include<iostream>
 #include<bits/stdc++.h>
 
@@ -65,31 +66,19 @@ class graph{
                 }
             }
         }
-        bool _hasPath(int src,int dst,vector<bool> visited){
+        bool hasPath(int src,int dst,vector<bool> visited){
             if(src == dst){
                 return true;
             }
+            visited[src] = true;
             for(vw i:adjList[src]){
                 if(!visited[i.vertex]){
-                    visited[i.vertex] = true;
-                    if(_hasPath(i.vertex,dst,visited))
+                    if(hasPath(i.vertex,dst,visited))
                         return true;
                 }
             }
             return false;
 
-        }
-
-        bool hasPath(int src,int dst){
-            vector<bool> visited(this->vertex,false);
-            for(vw i:adjList[src]){
-                if(!visited[i.vertex]){
-                    visited[i.vertex] = true;
-                    if(_hasPath(i.vertex,dst,visited))
-                        return true;
-                }
-            }
-            return false;
         }
 };
 int main(){
@@ -102,6 +91,7 @@ int main(){
     g.addEdge(2,3,10);
     g.addEdge(3,1,10);
     g.diplayGraph();
-    cout << g.hasPath(0,3) << endl;
+    vector<bool> visited(vertex,false);
+    cout << g.hasPath(0,3,visited) << endl;
     return 0;
 }
