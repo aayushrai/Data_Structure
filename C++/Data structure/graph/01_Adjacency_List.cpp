@@ -66,20 +66,6 @@ class graph{
                 }
             }
         }
-        bool hasPath(int src,int dst,vector<bool> visited){
-            if(src == dst){
-                return true;
-            }
-            visited[src] = true;
-            for(vw i:adjList[src]){
-                if(!visited[i.vertex]){
-                    if(hasPath(i.vertex,dst,visited))
-                        return true;
-                }
-            }
-            return false;
-
-        }
 };
 int main(){
     int vertex = 6;
@@ -91,7 +77,5 @@ int main(){
     g.addEdge(2,3,10);
     g.addEdge(3,1,10);
     g.diplayGraph();
-    vector<bool> visited(vertex,false);
-    cout << g.hasPath(0,3,visited) << endl;
     return 0;
 }
