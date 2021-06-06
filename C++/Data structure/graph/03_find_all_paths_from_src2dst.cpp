@@ -6,14 +6,14 @@ using namespace std;
 class graph{
     public:
         int vertex;
-        vector<vector<int>> adjMatrix;
+        vector<vector<int>> adjList;
         graph(int vertex){
             this->vertex = vertex;
-            adjMatrix.resize(vertex,vector<int>());
+            adjList.resize(vertex,vector<int>());
         }
         
         void addEdge(int src,int dst){
-            adjMatrix[src].push_back(dst);
+            adjList[src].push_back(dst);
         }
 
         void printAllPathsFromSrc2dst(int src,int dst,vector<bool>&visited,vector<int> path){
@@ -26,7 +26,7 @@ class graph{
             }
             path.push_back(src);
             visited[src] = true;
-            for(int j:adjMatrix[src]){
+            for(int j:adjList[src]){
                 if(!visited[j]){
                     printAllPathsFromSrc2dst(j,dst,visited,path);
                 }

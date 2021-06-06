@@ -3,23 +3,24 @@
 
 using namespace std;
 
-class graph{
+class UndirectedGraph{
     public:
         int vertex;
-        vector<vector<int>> adjMatrix;
-        graph(int vertex){
+        vector<vector<int>> adjList;
+        UndirectedGraph(int vertex){
             this->vertex = vertex;
-            adjMatrix.resize(vertex,vector<int>());
+            adjList.resize(vertex,vector<int>());
         }
         
         void addEdge(int src,int dst){
-            adjMatrix[src].push_back(dst);
+            adjList[src].push_back(dst);
+             adjList[dst].push_back(src);
         }
 
         void connectedComponents(int src,vector<bool>&visited,vector<int>& path){
             path.push_back(src);
             visited[src] = true;
-            for(int j:adjMatrix[src]){
+            for(int j:adjList[src]){
                 if(!visited[j]){
                     connectedComponents(j,visited,path);
                 }
@@ -31,7 +32,7 @@ class graph{
 
 int main(){
     int vertex = 7;
-    graph G(vertex);
+    UndirectedGraph G(vertex);
     G.addEdge(0,1);
     G.addEdge(0,3);
     G.addEdge(1,2);
