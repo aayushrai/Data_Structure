@@ -48,6 +48,7 @@ int LIS(struct CityPairs values[],int n){
     dp[0] = 1;
     for(int i=1;i<n;i++){
         int j = 0;
+        dp[i] = 1;
         while(j<i){
             if(values[j].south < values[i].south and dp[j]+1>dp[i]){
                 dp[i] = dp[j]+1;
@@ -67,8 +68,10 @@ int maxBridges(struct CityPairs values[],int n){
 }
 
 int main(){
-    struct CityPairs values[] = {{6,2},{4,3},{2,6},{1,5}};
-    int n = 4;
-    cout << "Maximum number of bridges = " << maxBridges(values, n); 
+  
+    // struct CityPairs values[] = {{6,2},{4,3},{2,6},{1,5}}; 
+    struct CityPairs values[] = {{8,1},{1,2},{4,3},{3,4},{5,5},{2,6},{6,7},{7,8}};
+    int n = sizeof(values)/sizeof(values[0]);
+    cout << "Maximum number of bridges = " << maxBridges(values, n) << endl; 
     return 0;
 }
