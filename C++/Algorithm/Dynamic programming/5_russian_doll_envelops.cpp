@@ -15,7 +15,7 @@ bool compare(struct doll a,struct doll b){
 }
 
 int lis(struct doll arr[],int n){
-    int dp[n]={0};
+    vector<int> dp(n,0);
     dp[0] = 1;
     int mx = 0;
     for(int i=1;i<n;i++){
