@@ -18,3 +18,4 @@ int main(){
     int n=1000;
     printLexicographicalOrder(n,0);
 }
+
