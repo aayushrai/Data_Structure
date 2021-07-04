@@ -26,7 +26,6 @@ class graph{
                 return true;
             }
         }
-        visited[src] = false;
         return false;
     }
 
@@ -60,3 +59,4 @@ int main(){
 // 0 ---- 1 --- 4  
 // |      |     |  \    
 // 3 ---- 2 --- 5---6
+

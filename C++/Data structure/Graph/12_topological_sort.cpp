@@ -46,7 +46,7 @@ class directedGraph {
 int main(){
   int vertex = 6;
   directedGraph G(vertex);
-  G.addEdge(0,2);
+  G.addEdge(0,1);
   G.addEdge(0,3);
   G.addEdge(3,1);
   G.addEdge(4,1);
