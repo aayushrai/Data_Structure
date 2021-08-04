@@ -40,7 +40,7 @@ public:
       }
     }
     for(int i = 0; i < shortestPathArray.size(); i++) {
-      cout << 
+      cout << "shortest distance from" << src << "to"
     }
   }
 };
