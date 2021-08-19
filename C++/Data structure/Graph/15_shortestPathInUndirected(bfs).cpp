@@ -40,7 +40,7 @@ public:
       }
     }
     for(int i = 0; i < shortestPathArray.size(); i++) {
-      cout << "shortest distance from" << src << "to"
+      cout << "shortest distance from " << src << " to " << i  << " is "<< shortestPathArray[i] << endl;
     }
   }
 };
@@ -58,13 +58,10 @@ int main()
   G.addEdge(4, 5, 1);
   G.addEdge(4, 6, 1);
   G.addEdge(5, 6, 1);
+  G.shortestPathFromSrc(0);
 }
 
 // 0 ---- 1 --- 4
 // |      |     |  \   
 // 3 ---- 2 --- 5---6
 
-// 0 1 2 3 4 5 6
-// 0 1 i 1 i i i
-
-// q -> 3
